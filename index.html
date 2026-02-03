@@ -1,98 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Will You Be My Valentine? 💖</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            overflow: hidden;
-        }
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px 25px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            position: relative;
-        }
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
 
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+h1 {
+    margin-bottom: 15px;
+}
 
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            position: relative;
-            height: 120px;
-        }
+.buttons {
+    position: relative;
+    height: 130px;
+}
 
-        a.button {
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: absolute;
-            width: 100%;
-            left: 0;
-        }
+.button {
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
 
-        a.yes {
-            background: #fff;
-            color: #ff4d6d;
-            top: 0;
-        }
+.yes {
+    background: #fff;
+    color: #ff4d6d;
+    top: 0;
+}
 
-        a.no {
-            background: rgba(255,255,255,0.25);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.5);
-            top: 60px;
-        }
+.no {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.5);
+    top: 70px;
+}
 
-        a.button:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
 
-        footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-    </style>
+/* HEARTS */
+.heart {
+    position: fixed;
+    top: -20px;
+    font-size: 22px;
+    animation: fall linear forwards;
+    z-index: 1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* HIDDEN MUSIC PLAYER */
+#music {
+    display: none;
+}
+</style>
 </head>
+
 <body>
 
 <div class="card">
@@ -100,50 +112,80 @@
 
     <p>
         Hey you 🌹<br><br>
-        Valentine’s Day is about choosing someone special,  
-        and today, I choose you.<br><br>
-        So tell me…
+        Valentine’s Day is about choosing someone special,<br>
+        and I choose you.
     </p>
 
     <p><strong>Will you be my Valentine?</strong> 💕</p>
 
     <div class="buttons">
-        <!-- CHANGE NUMBER -->
-        <a class="button yes" 
-           href="https://wa.me/27XXXXXXXXX?text=Yes%20I%27ll%20be%20your%20Valentine%20❤️">
-            ❤️ Yes, I’d love to
-        </a>
+        <div class="button yes" id="yesBtn">
+            ❤️ Yes, ofcause I will
+        </div>
 
-        <a class="button no" id="noBtn">
+        <div class="button no" id="noBtn">
             🙈 No
-        </a>
+        </div>
     </div>
 
-    <footer>
-        Made with ❤️ just for you
-    </footer>
+    <footer>Made with ❤️ just for you</footer>
 </div>
 
+<!-- J. COLE SONG (YOUTUBE AUTOPLAY AFTER CLICK) -->
+<iframe
+    id="music"
+    src=""
+    allow="autoplay">
+</iframe>
+
 <script>
-    const noBtn = document.getElementById('noBtn');
-    const card = document.querySelector('.card');
+/* NO BUTTON RUNS AWAY */
+const noBtn = document.getElementById('noBtn');
+const card = document.querySelector('.card');
 
-    noBtn.addEventListener('mouseenter', moveButton);
-    noBtn.addEventListener('touchstart', moveButton);
+function moveNo() {
+    const cardRect = card.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
 
-    function moveButton() {
-        const cardRect = card.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
+    const maxX = cardRect.width - btnRect.width;
+    const maxY = cardRect.height - btnRect.height - 80;
 
-        const maxX = cardRect.width - btnRect.width;
-        const maxY = cardRect.height - btnRect.height - 80;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY + 80;
 
-        const x = Math.random() * maxX;
-        const y = Math.random() * maxY + 80;
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+}
 
-        noBtn.style.left = x + 'px';
-        noBtn.style.top = y + 'px';
+noBtn.addEventListener('mouseenter', moveNo);
+noBtn.addEventListener('touchstart', moveNo);
+
+/* HEARTS + MUSIC ON YES */
+const yesBtn = document.getElementById('yesBtn');
+const music = document.getElementById('music');
+
+yesBtn.addEventListener('click', () => {
+    // Drop hearts
+    for (let i = 0; i < 35; i++) {
+        createHeart();
     }
+
+    // Play J. Cole song
+    music.src = "https://www.youtube.com/embed/0w0ntj0eR4Y?autoplay=1";
+});
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}
 </script>
 
 </body>
